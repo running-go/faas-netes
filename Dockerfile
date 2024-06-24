@@ -1,4 +1,4 @@
-FROM ghcr.io/openfaas/license-check:0.4.2 as license-check
+#FROM ghcr.io/openfaas/license-check:0.4.2 as license-check
 
 FROM --platform=${BUILDPLATFORM:-linux/amd64} golang:1.22 as build
 
@@ -14,7 +14,7 @@ ENV CGO_ENABLED=0
 ENV GO111MODULE=on
 ENV GOFLAGS=-mod=vendor
 
-COPY --from=license-check /license-check /usr/bin/
+#COPY --from=license-check /license-check /usr/bin/
 
 WORKDIR /go/src/github.com/openfaas/faas-netes
 COPY . .
